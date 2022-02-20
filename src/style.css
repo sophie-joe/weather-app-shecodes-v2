@@ -1,0 +1,23 @@
+h1 {
+  color: #00bfa6;
+  background-color: transparent;
+  text-align: center;
+  text-shadow: -1px -1px 0 #ffff, 1px -1px 0 #ffff, -1px 1px 0 #ffff,
+    1px 1px 0 #ffff;
+}
+p {
+  background-color: transparent;
+}
+.card-img {
+  width: 50%;
+  margin: 10px 350px;
+}
+.weather-person {
+  width: 50%;
+  margin: 10px 100px;
+  background-color: #00bfa6;
+}
+#location-form {
+  text-align: center;
+  background-color: transparent;
+}
