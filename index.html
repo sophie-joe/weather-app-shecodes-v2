@@ -11,8 +11,11 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="src/style.css" />
-  </head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
+</head>
+
   <body>
     <div class="container">
       <img src="media/mount.jpg" class="card-img" alt="background" />
@@ -20,47 +23,97 @@
       <div class="card-img-overlay">
         <section>
           <div class="container weather">
-            <p>
-
-            </br>
-            </br>
-            </br>
-
 
 <div class="container">
   <div class="row">
     <div class="col-4">
       <!-- placeholder -->
     </div>
-    <div class="col-4">
-      <h1 class=" ">
-    Weather app
-</h1>
-<img src="media/weather-person.svg" class="weather-person" alt="weather person"/>
-<form id="location-form">
-            <input type="text" id="search" class="input-city" placeholder="Enter location"/>
-            <button type="submit" class="btn btn-primary">Search</button>
-            <button type="click" class="btn btn-secondary" id="pin">📍</button>
-          </form>
+        <div class="col-4">
+            <br>
+                <h1 class="title">
+                    Weather
+                </h1>
+                    <img src="media/weather-person.svg" class="weather-person" alt="weather person"/>
+                        <form id="location-form">
+                            <input type="text" id="search" class="input-city" placeholder="Enter location"/>
+                            <button type="submit" class="btn btn-warning">Search</button>
+                            <button type="click" class="btn btn-light" id="pin">📍</button>
+                        </form>
 
+                            <p>
+                                <h1><span id="city-label">
+                                    New York </span>
+                                        <span id="country-label">
+                                            US
+                                        </span>
+                                </h1>
+                            </p>
+
+                            <p>
+                                <h1>
+                                    <i class="bi bi-cloud-drizzle-fill">
+                                    </i>
+                                </h1>
+                            </p>
+
+                            <p>
+                                <h2 id="current-desc">
+                                    Light rain
+                                </h2>
+                            </p>
+
+
+                            <p>
+                                <h1 id="current-temp">
+                                    10°C
+                                </h1>
+                            </p>
+
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-secondary active">
+                                    <input
+                                type="radio"
+                                name="options"
+                                id="option1"
+                                autocomplete="off"
+                                checked
+                                    />
+                                    °C
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input
+                                        type="radio"
+                                        name="options"
+                                        id="option2"
+                                        autocomplete="off"
+                                        />
+                                        °F
+                                </label>
+                            </div>
+
+<div class="row info-grid">
+  <div class="col">Low:<div id="current-low-temp">15°C</div></div>
+  <div class="col">High:<div id="current-high-temp">20°C</div></div>
+  <div class="col">Wind: <div id="current-wind">2mps</div></div>
+  <div class="col">Humidity:<div id="current-humidity">20</div></div>
 </div>
 
-      </div>
-    </div>
 
-<div>
+                            <div class="row week-grid">
+                                <div class="col"><i class="bi bi-cloud-sun-fill">Sun</i></div>
+                                <div class="col"><i class="bi bi-clouds-fill">Mon</i></div>
+                                <div class="col"><i class="bi bi-cloudy-fill">Tues</i></div>
+                                <div class="col"><i class="bi bi-cloud-sun-fill">Weds</i></div>
+                            </div>
+                        </div>
 
-</div>   
     <div class="col-4">
         <!-- placeholder -->
     </div>
   </div>
 </div>
-
-
-
-
-    </div>
+</div>
     <script src="src/script.js"></script>
   </body>
 </html>
