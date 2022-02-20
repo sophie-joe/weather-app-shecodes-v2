@@ -46,6 +46,8 @@ function showMyWeather(response) {
   currentLow.innerHTML = `${myLow}°C`;
   currentHigh.innerHTML = `${myHigh}°C`;
   currentCountry.innerHTML = `${myCountry}`;
+  currentDate.innerHTML = getDate(response.data.dt * 1000);
+  console.log(getDate);
 }
 
 let currentTemp = document.querySelector("#current-temp");
@@ -56,6 +58,7 @@ let currentDesc = document.querySelector("#current-desc");
 let currentLow = document.querySelector("#current-low-temp");
 let currentHigh = document.querySelector("#current-high-temp");
 let currentCountry = document.querySelector("#country-label");
+let currentDate = document.querySelector("#date");
 
 let updateCurrent = document.querySelector("#pin");
 console.log(updateCurrent);
@@ -64,3 +67,35 @@ updateCurrent.addEventListener("click", callNavigationGeo);
 function callNavigationGeo() {
   navigator.geolocation.getCurrentPosition(handlePosition);
 }
+
+function getDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
+}
+
+//update cel to fah
+function updateCel() {
+  let input = document.querySelector("#current-temp");
+  input.innerHTML = `19`;
+}
+
+let changeCel = document.querySelector("#option1");
+changeCel.addEventListener("change", updateCel);

@@ -1,5 +1,6 @@
 h1,
-h2 {
+h2,
+h3 {
   color: #f9a826;
   background-color: transparent;
   text-align: center;
@@ -7,12 +8,19 @@ h2 {
     1px 1px 0 #ffff;
 }
 p {
+  text-align: center;
+  color: #ffff;
   background-color: transparent;
 }
 i {
   color: #ffff;
 }
-
+ul {
+  list-style: none;
+  background-color: rgba(249, 168, 38, 0.25);
+  border-radius: 10%;
+  margin: 25px 10px;
+}
 .btn-group-toggle {
   width: 50%;
   margin: 0px 100px;
@@ -21,17 +29,19 @@ i {
 .card-img {
   width: 50%;
   margin: 0px 325px;
-  border-radius: 20px;
   border-radius: 10%;
+  border: 1px solid orange;
 }
 .weather-person {
   width: 50%;
-  margin: 10px 100px;
+  margin: 10px 100px 20px;
   background-color: rgba(249, 168, 38, 0.25);
+  border-radius: 10%;
 }
 #location-form {
   text-align: center;
   background-color: transparent;
+  margin-bottom: 10px;
 }
 .info-grid,
 .week-grid {
@@ -39,8 +49,9 @@ i {
   color: #ffff;
   text-align: center;
   background-color: rgba(249, 168, 38, 0.25);
+  border-radius: 10px;
 }
 
-#current-desc {
+#current-desc:first-letter {
   text-transform: capitalize;
 }
