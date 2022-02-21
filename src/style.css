@@ -16,6 +16,7 @@ i {
   color: #ffff;
 }
 ul {
+  padding: 0;
   list-style: none;
   background-color: rgba(249, 168, 38, 0.25);
   border-radius: 10%;
@@ -54,4 +55,11 @@ ul {
 
 #current-desc:first-letter {
   text-transform: capitalize;
+}
+
+#icon {
+  text-align: center;
+  color: #ffff;
+  margin: 0;
+  background-color: rgba(150, 95, 6, 0.75);
 }

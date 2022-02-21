@@ -9,7 +9,7 @@ function sendBackCity(event) {
 
   let apiKey = "d06e9073694a0fc6183b83aa2f9b6a1d";
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
-
+  //example https://api.openweathermap.org/data/2.5/weather?q=$paris&units=metric&appid=d06e9073694a0fc6183b83aa2f9b6a1d
   axios.get(weatherUrl).then(showMyWeather);
 }
 
@@ -19,7 +19,6 @@ addCity.addEventListener("submit", sendBackCity);
 //get current location
 
 function handlePosition(position) {
-  console.log(position);
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let currentApiKey = "d06e9073694a0fc6183b83aa2f9b6a1d";
@@ -37,6 +36,7 @@ function showMyWeather(response) {
   let myLow = Math.round(response.data.main.temp_min);
   let myHigh = Math.round(response.data.main.temp_max);
   let myCountry = response.data.sys.country;
+  let myIcon = response.data.weather[0].icon;
 
   currentTemp.innerHTML = `${cel}°C`;
   currentCity.innerHTML = `${myCity}`;
@@ -47,7 +47,11 @@ function showMyWeather(response) {
   currentHigh.innerHTML = `${myHigh}°C`;
   currentCountry.innerHTML = `${myCountry}`;
   currentDate.innerHTML = getDate(response.data.dt * 1000);
-  console.log(getDate);
+  currentIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${myIcon}@2x.png`
+  );
+  currentIcon.setAttribute("alt", `${myDesc}`);
 }
 
 let currentTemp = document.querySelector("#current-temp");
@@ -59,9 +63,9 @@ let currentLow = document.querySelector("#current-low-temp");
 let currentHigh = document.querySelector("#current-high-temp");
 let currentCountry = document.querySelector("#country-label");
 let currentDate = document.querySelector("#date");
+let currentIcon = document.querySelector("#icon");
 
 let updateCurrent = document.querySelector("#pin");
-console.log(updateCurrent);
 updateCurrent.addEventListener("click", callNavigationGeo);
 
 function callNavigationGeo() {
