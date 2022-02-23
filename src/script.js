@@ -1,3 +1,13 @@
+//on page load default to Paris:
+window.addEventListener("load", () => {
+  onLoadDefault();
+});
+
+function onLoadDefault(event) {
+  let cityName = "Paris";
+  getAPI(cityName);
+}
+
 //update city name to label
 
 function sendBackCity(event) {
@@ -6,10 +16,19 @@ function sendBackCity(event) {
   let update = document.querySelector("#city-label");
   update.innerHTML = `${input.value}`;
   let cityName = `${input.value}`;
+  if (cityName === "") {
+    alert("Oops! You haven't typed a city ❌ Please add then press search 😁");
+  } else {
+    getAPI(cityName);
+  }
+}
 
+//send api request
+
+function getAPI(cityName) {
+  let city = cityName;
   let apiKey = "d06e9073694a0fc6183b83aa2f9b6a1d";
-  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
-  //example https://api.openweathermap.org/data/2.5/weather?q=$paris&units=metric&appid=d06e9073694a0fc6183b83aa2f9b6a1d
+  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(weatherUrl).then(showMyWeather);
 }
 
@@ -26,8 +45,9 @@ function handlePosition(position) {
   axios.get(url).then(showMyWeather);
 }
 
+//using api response update info
+
 function showMyWeather(response) {
-  console.log(response);
   let cel = Math.round(response.data.main.temp);
   let myCity = response.data.name;
   let myWind = Math.round(response.data.wind.speed);
@@ -54,6 +74,7 @@ function showMyWeather(response) {
   currentIcon.setAttribute("alt", `${myDesc}`);
 }
 
+//update where by ID
 let currentTemp = document.querySelector("#current-temp");
 let currentWind = document.querySelector("#current-wind");
 let currentHumidity = document.querySelector("#current-humidity");
@@ -65,12 +86,15 @@ let currentCountry = document.querySelector("#country-label");
 let currentDate = document.querySelector("#date");
 let currentIcon = document.querySelector("#icon");
 
+//on pin, call geo
 let updateCurrent = document.querySelector("#pin");
 updateCurrent.addEventListener("click", callNavigationGeo);
 
 function callNavigationGeo() {
   navigator.geolocation.getCurrentPosition(handlePosition);
 }
+
+//update date/time
 
 function getDate(timestamp) {
   let date = new Date(timestamp);
