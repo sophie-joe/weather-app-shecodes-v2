@@ -69,3 +69,6 @@ ul {
 a {
   color: #ffff;
 }
+.day-load-low {
+  opacity: 0.65;
+}
