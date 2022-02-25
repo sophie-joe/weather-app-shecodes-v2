@@ -75,6 +75,7 @@ function showMyWeather(response) {
     `https://openweathermap.org/img/wn/${myIcon}@2x.png`
   );
   currentIcon.setAttribute("alt", `${myDesc}`);
+  displayForecast();
 }
 
 //update where by ID
@@ -153,6 +154,23 @@ function updateCel() {
   changeCelLow.innerHTML = `${celsiusLow}°C`;
   fahBtn.classList.remove("active");
   celBtn.classList.add("active");
+}
+
+//display forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class='row'>`;
+
+  let days = ["Sun", "Mon", "Tues"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">${day}</i><div><img src="https://openweathermap.org/img/wn/50d@2x.png"width="42"/></div><div class="day-load-high">12° <span class="day-load-low">8°</span></div></div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 let changeFah = document.querySelector(`#fah`);
