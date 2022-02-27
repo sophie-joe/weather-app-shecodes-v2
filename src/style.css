@@ -2,33 +2,45 @@ h1,
 h2,
 h3 {
   color: #f9a826;
+  font-size: x-large;
   background-color: transparent;
   text-align: center;
   text-shadow: -1px -1px 0 #ffff, 1px -1px 0 #ffff, -1px 1px 0 #ffff,
     1px 1px 0 #ffff;
 }
+
+a {
+  color: #ffff;
+}
+
 p {
   text-align: center;
   color: #ffff;
   background-color: transparent;
 }
+
 i {
   color: #ffff;
 }
+
 ul {
   padding: 0;
+  margin: 0;
   list-style: none;
   border-radius: 10%;
-  margin: 25px 10px;
 }
+
 .btn-group-toggle {
   width: 50%;
   margin: 0px 100px;
 }
 
 .card-img {
-  width: 50%;
-  margin: 0px 325px;
+  width: 51%;
+  /* margin: 0px 280px; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 10%;
   border: 1px solid orange;
 }
@@ -67,9 +79,7 @@ ul {
 #search {
   height: 38px;
 }
-a {
-  color: #ffff;
-}
+
 .day-load-low {
   opacity: 0.65;
 }

@@ -15,11 +15,7 @@ function sendBackCity(event) {
   let update = document.querySelector("#city-label");
   update.innerHTML = `${input.value}`;
   let cityName = `${input.value}`;
-  if (cityName === "") {
-    alert("Oops! You haven't typed a city ❌ Please add then press search 😁");
-  } else {
-    getAPI(cityName);
-  }
+  getAPI(cityName);
 }
 
 //send api request
@@ -79,10 +75,8 @@ function showMyWeather(response) {
 
 //get forcast
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "d06e9073694a0fc6183b83aa2f9b6a1d";
   let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=metric`;
-  console.log(apiURL);
   axios.get(apiURL).then(displayForecast);
 }
 
@@ -189,9 +183,9 @@ function displayForecast(response) {
           forecastDay.weather[0].icon
         }@2x.png"width="42"/></div><div class="day-load-high">${Math.round(
           forecastDay.temp.max
-        )}° <span class="day-load-low">${Math.round(
+        )}°C <span class="day-load-low">${Math.round(
           forecastDay.temp.min
-        )}°</span></div></div>`;
+        )}°C</span></div></div>`;
     }
   });
   forecastHTML = forecastHTML + `</div>`;
