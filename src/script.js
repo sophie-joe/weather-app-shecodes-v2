@@ -9,7 +9,6 @@ function onLoadDefault(event) {
 }
 
 //update city name to label
-
 function sendBackCity(event) {
   event.preventDefault();
   let input = document.querySelector("#search");
@@ -70,12 +69,21 @@ function showMyWeather(response) {
   currentHigh.innerHTML = `${myHigh}°C`;
   currentCountry.innerHTML = `${myCountry}`;
   currentDate.innerHTML = getDate(response.data.dt * 1000);
+  getForecast(response.data.coord);
   currentIcon.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${myIcon}@2x.png`
   );
   currentIcon.setAttribute("alt", `${myDesc}`);
-  displayForecast();
+}
+
+//get forcast
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "d06e9073694a0fc6183b83aa2f9b6a1d";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=metric`;
+  console.log(apiURL);
+  axios.get(apiURL).then(displayForecast);
 }
 
 //update where by ID
@@ -157,7 +165,8 @@ function updateCel() {
 }
 
 //display forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class='row'>`;
 
