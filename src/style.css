@@ -48,6 +48,7 @@ ul {
   margin: 30px 0px 20px;
   color: #ffff;
   text-align: center;
+  font-size: small;
   background-color: rgba(150, 95, 6, 0.8);
   border-radius: 10px;
 }
